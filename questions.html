@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Johnny's Quiz Master</title>
-		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="stylesheet" href="./assets/css/style-answers.css" />
 	</head>
 	<body>
 		<header>
@@ -15,15 +15,15 @@
 
 		<main>
 			<section class="container">
-				<div id="title">Coding Quiz Challenge</div>
-				<div id="description">
-					Try to answer the following code-related questions within the time
-					limit. Keep in mind that incorrect answers will penalize your
-					score/time by ten seconds!
+				<div id="questionContainer"></div>
+				<div id="answerContainer">
+					<button class="option" id="op1"></button>
+					<button class="option" id="op2"></button>
+					<button class="option" id="op3"></button>
+					<button class="option" id="op4"></button>
 				</div>
-				<button class="btn" id="start-quiz" type="submit">Start Quiz</button>
 			</section>
 		</main>
-		<script src="./assets/js/script.js"></script>
+		<script src="./assets/js/script-answers.js"></script>
 	</body>
 </html>
