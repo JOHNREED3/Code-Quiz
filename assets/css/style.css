@@ -2,7 +2,7 @@
     box-sizing:content-box;
     margin: 10px;
     padding: 10px;
-    max-width: 600px;
+    max-width: 1000px;
 }
 
 body {
@@ -42,7 +42,7 @@ header .timer {
 main .container{
     margin: 10px auto;
     width: 60%;
-    width-min: 300px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
