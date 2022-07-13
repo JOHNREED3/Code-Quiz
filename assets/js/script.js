@@ -6,6 +6,8 @@ var submitBtnEl = document.querySelector("#start-quiz");
 
 var questionNumber = 0;
 var penalty = 10;
+var time = 75;
+var endTime = "";
 
 quizQuestions = [
 	{
@@ -45,10 +47,6 @@ quizQuestions = [
 
 // timer countdown
 var countdown = function () {
-	timerEl.textContent = time;
-	// timer starts at 75
-	var time = 75;
-
 	// use interval to countdown clock
 	var timeInterval = setInterval(function () {
 		if (time >= 1) {
@@ -71,6 +69,7 @@ submitBtnEl.addEventListener("click", countdown);
 var askQuestions = function (questionNumber) {
 	//Clear existing data
 	questions.innerHTML = "";
+	answerSection.innerHTML = "";
 
 	// for loop to display questions
 	for (var i = 0; i < quizQuestions.length; i++) {
@@ -91,6 +90,7 @@ var askQuestions = function (questionNumber) {
 // Compare choice with correct answer
 function compare(event) {
 	var element = event.target;
+	console.log(element);
 
 	if (element.matches("li")) {
 		var createDiv = document.createElement("div");
@@ -98,14 +98,26 @@ function compare(event) {
 
 		if (element.textContent == quizQuestions[questionNumber].answer) {
 			createDiv.textContent = "Correct!";
+		} else {
+			time = time - penalty;
+			createDiv.textContent = "Wrong!";
 		}
 	}
 
 	questionNumber++;
+
+	if (questionNumber == quizQuestions.length) {
+		quizComplete();
+		return;
+	} else {
+		askQuestions(questionNumber);
+	}
 }
-if (questionNumber >= quizQuestions.length) {
-	quizComplete();
-	createDiv.textContent = "End of quiz!";
-} else {
-	render(questionNumber);
+
+function quizComplete() {
+	questions.innerHTML = "";
+	answerSection.innerHTML = "";
+	questions.textContent = "All Done!";
+	answerSection.textContent = "Your final score is: " + time;
+	timerEl.textContent = "";
 }

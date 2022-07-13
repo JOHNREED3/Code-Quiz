@@ -105,3 +105,15 @@ ul li {
     font-size: 18px;
     color: white;
 }
+
+#createDiv {
+    width: auto;
+    min-width: 200px;
+    align-self: center;
+    margin-top: 10px;
+    padding: 5px 15px;
+    width: 80%;
+    font-size: 20px;
+    color: grey;
+    border-top: 2px solid grey;
+}
