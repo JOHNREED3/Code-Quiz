@@ -22,6 +22,7 @@ body {
 main {
     padding: 0px;
     min-width: 300px;
+    height:auto;
 }
 header {
     min-height: 40px;

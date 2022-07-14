@@ -5,9 +5,9 @@ var questionsEl = document.getElementById("questions");
 var submitBtnEl = document.querySelector("#start-quiz");
 
 var questionNumber = 0;
+var timeInterval = 0;
 var penalty = 10;
 var time = 75;
-var endTime = "";
 
 quizQuestions = [
 	{
@@ -45,27 +45,25 @@ quizQuestions = [
 	},
 ];
 
-// timer countdown
-var countdown = function () {
-	// use interval to countdown clock
-	var timeInterval = setInterval(function () {
+// button activated
+submitBtnEl.addEventListener("click", function() {
+	if (timeInterval === 0) {
+		timeInterval = setInterval(function())
+	}
 		if (time >= 1) {
 			timerEl.textContent = "Time: " + time;
 			time--;
-		} else if (time === 0) {
-			timerEl.textContent = "Time: 0";
-			clearInterval(timeInterval);
-		}
-	}, 1000);
-
-	askQuestions(questionNumber);
-};
-
-// button activated
-submitBtnEl.addEventListener("click", countdown);
+			} else {
+				timerEl.textContent = "Time: --";
+				clearInterval(timeInterval);
+			}
+		}, 1000);
+		askQuestions(questionNumber);
+	}
+	
+}
 
 // display questions
-
 var askQuestions = function (questionNumber) {
 	//Clear existing data
 	questions.innerHTML = "";
@@ -93,6 +91,7 @@ function compare(event) {
 	console.log(element);
 
 	if (element.matches("li")) {
+		document.querySelector("main");
 		var createDiv = document.createElement("div");
 		createDiv.setAttribute("id", "createDiv");
 
@@ -108,16 +107,15 @@ function compare(event) {
 
 	if (questionNumber == quizQuestions.length) {
 		quizComplete();
-		return;
 	} else {
 		askQuestions(questionNumber);
 	}
-}
 
-function quizComplete() {
-	questions.innerHTML = "";
-	answerSection.innerHTML = "";
-	questions.textContent = "All Done!";
-	answerSection.textContent = "Your final score is: " + time;
-	timerEl.textContent = "";
+	function quizComplete() {
+		clearInterval(timeInterval);
+		questions.innerHTML = "";
+		answerSection.innerHTML = "";
+		questions.textContent = "All Done!";
+		answerSection.textContent = "Your final score is: " + time;
+	}
 }
