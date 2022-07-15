@@ -86,7 +86,7 @@ var askQuestions = function (questionNumber) {
 // Compare choice with correct answer
 function compare(event) {
 	var element = event.target;
-	console.log(element);
+	//console.log(element);
 
 	if (element.matches("li")) {
 		var createDiv = document.createElement("div");
@@ -152,7 +152,7 @@ function recordScore() {
 	form.appendChild(label);
 	form.appendChild(input);
 	form.appendChild(button);
-	console.log(form);
+	//console.log(form);
 
 	input.addEventListener("keypress", function (event) {
 		// Number 13 is the "Enter" key on the keyboard
@@ -165,7 +165,7 @@ function recordScore() {
 	button.addEventListener("click", function () {
 		var initials = input.value;
 
-		if (initials === null) {
+		if (initials == "") {
 			window.alert("Please enter your initials");
 		} else {
 			var finalScore = {
@@ -173,6 +173,17 @@ function recordScore() {
 				score: time,
 			};
 			console.log(finalScore);
+
+			//store scores to highscore board
+			var scores = localStorage.getItem("scores");
+			if (scores === null) {
+				scores = [];
+			} else {
+				scores = JSON.parse(scores);
+			}
+			scores.push(finalScore);
+			var jsScore = JSON.stringify(scores);
+			localStorage.setItem("scores", jsScore);
 		}
 	});
 }
