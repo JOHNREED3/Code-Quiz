@@ -128,9 +128,51 @@ function quizComplete(timeout) {
 }
 
 function recordScore() {
-	var enterScore = document.getElementById("createDiv");
-	var initialsInput = document.createElement("input");
-	initialsInput.setAttribute();
+	// create a new form to capture initals for highscore
+	var form = document.createElement("form");
+	container.appendChild(form);
 
-	enterScore.console.log(enterScore);
+	// create label
+	var label = document.createElement("label");
+	label.setAttribute("id", "initials");
+	label.textContent = "Enter Initials: ";
+
+	// input
+	var input = document.createElement("input");
+	input.setAttribute("type", "text");
+	input.setAttribute("id", "initials");
+	input.textContent = "";
+
+	// submit
+	var button = document.createElement("button");
+	button.setAttribute("type", "button");
+	button.setAttribute("id", "initials");
+	button.textContent = "Submit";
+
+	form.appendChild(label);
+	form.appendChild(input);
+	form.appendChild(button);
+	console.log(form);
+
+	input.addEventListener("keypress", function (event) {
+		// Number 13 is the "Enter" key on the keyboard
+		if (event.charCode === 13) {
+			// Cancel the default action, if needed
+			event.preventDefault();
+		}
+	});
+
+	button.addEventListener("click", function () {
+		var initials = input.value;
+
+		if (initials === null) {
+			window.alert("Please enter your initials");
+		} else {
+			var finalScore = {
+				initials: initials,
+				score: time,
+			};
+			console.log(finalScore);
+		}
+	});
 }

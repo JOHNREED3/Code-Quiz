@@ -118,3 +118,18 @@ ul li {
     color: grey;
     border-top: 2px solid grey;
 }
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+label {
+    flex-wrap: nowrap;
+    width: auto;
+    text-align: right;
+    margin-right: 0px;
+    padding-right: 0px;
+}
