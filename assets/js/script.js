@@ -46,22 +46,20 @@ quizQuestions = [
 ];
 
 // button activated
-submitBtnEl.addEventListener("click", function() {
+submitBtnEl.addEventListener("click", function () {
 	if (timeInterval === 0) {
-		timeInterval = setInterval(function())
-	}
-		if (time >= 1) {
-			timerEl.textContent = "Time: " + time;
+		timeInterval = setInterval(function () {
 			time--;
-			} else {
-				timerEl.textContent = "Time: --";
+			timerEl.textContent = "Time: " + time;
+
+			if (time <= 0 || questionNumber > quizQuestions.length) {
 				clearInterval(timeInterval);
+				quizComplete();
 			}
 		}, 1000);
-		askQuestions(questionNumber);
 	}
-	
-}
+	askQuestions(questionNumber);
+});
 
 // display questions
 var askQuestions = function (questionNumber) {
@@ -91,8 +89,8 @@ function compare(event) {
 	console.log(element);
 
 	if (element.matches("li")) {
-		document.querySelector("main");
 		var createDiv = document.createElement("div");
+		container.appendChild(createDiv);
 		createDiv.setAttribute("id", "createDiv");
 
 		if (element.textContent == quizQuestions[questionNumber].answer) {
@@ -101,7 +99,12 @@ function compare(event) {
 			time = time - penalty;
 			createDiv.textContent = "Wrong!";
 		}
+		timeout;
 	}
+
+	var timeout = setTimeout(function () {
+		container.removeChild(createDiv);
+	}, 600);
 
 	questionNumber++;
 
@@ -113,8 +116,11 @@ function compare(event) {
 
 	function quizComplete() {
 		clearInterval(timeInterval);
+		timerEl.textContent = "Time: --";
 		questions.innerHTML = "";
 		answerSection.innerHTML = "";
+		clearTimeout(timeout);
+		createDiv.textContent = "";
 		questions.textContent = "All Done!";
 		answerSection.textContent = "Your final score is: " + time;
 	}
