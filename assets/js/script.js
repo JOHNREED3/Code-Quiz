@@ -113,15 +113,24 @@ function compare(event) {
 	} else {
 		askQuestions(questionNumber);
 	}
+}
 
-	function quizComplete() {
-		clearInterval(timeInterval);
-		timerEl.textContent = "Time: --";
-		questions.innerHTML = "";
-		answerSection.innerHTML = "";
-		clearTimeout(timeout);
-		createDiv.textContent = "";
-		questions.textContent = "All Done!";
-		answerSection.textContent = "Your final score is: " + time;
-	}
+function quizComplete(timeout) {
+	clearInterval(timeInterval);
+	timerEl.textContent = "Time: --";
+	questions.innerHTML = "";
+	answerSection.innerHTML = "";
+	clearTimeout(timeout);
+	createDiv.textContent = "";
+	questions.textContent = "All Done!";
+	answerSection.textContent = "Your final score is: " + time;
+	recordScore();
+}
+
+function recordScore() {
+	var enterScore = document.getElementById("createDiv");
+	var initialsInput = document.createElement("input");
+	initialsInput.setAttribute();
+
+	enterScore.console.log(enterScore);
 }
