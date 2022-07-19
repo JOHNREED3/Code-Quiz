@@ -133,3 +133,21 @@ label {
     margin-right: 0px;
     padding-right: 0px;
 }
+
+#scoreHigh {
+    align-content: left;
+}
+
+#scoreBoard {
+    width: auto;
+    min-width: 200px;
+    align-self: flex-start;
+    background-color: purple;
+    border-radius: 10px;
+    opacity: 70%;
+    margin-top: 10px;
+    padding: 5px 15px;
+    width: 80%;
+    font-size: 18px;
+    color: white;
+}

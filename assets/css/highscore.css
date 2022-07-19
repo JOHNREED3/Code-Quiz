@@ -1,0 +1,82 @@
+* {
+    box-sizing:content-box;
+    margin: 10px;
+    padding: 10px;
+    max-width: 1000px;
+}
+html {
+    min-width: 300px;
+}
+
+body {
+    display:flexbox;
+    flex-wrap:nowrap;
+    width: 100%;
+    min-width: 300px;
+    border: 3px solid black;
+    min-height: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    min-height: 40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+main {
+    margin: 0px auto;
+    padding: 0px;
+    min-width: 300px;
+    min-height: 200px; 
+    height:auto;
+    width: 90%;
+}
+
+#container {
+        margin: 10px auto;
+        padding: 0px;
+        width: 60%;
+        max-width: 600px;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: left;
+        justify-content: space-between;
+}
+
+#scoreHigh {
+    align-self: left;
+    margin: 0px;
+    width: 80%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    text-align: left;
+    font-size: 24px;
+}
+
+li {
+    background-color: rgba(128,0,128, 0.3);
+    color: rgba(0,0,0,0, .8);
+    width: auto;
+    min-width: 280px;
+    align-self: flex-start;
+    border-radius: 3px;
+    margin: 10px 0px 10px 0px;
+    padding: 0px 0px;
+    width: 80%;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+#scoreBoard {
+    margin: 0px;
+    padding: 0px;
+}
+#scoreBox {
+    margin: 0px;
+    padding: 0px;
+}
