@@ -184,6 +184,8 @@ function recordScore() {
 			scores.push(finalScore);
 			var jsScore = JSON.stringify(scores);
 			localStorage.setItem("scores", jsScore);
+			// Travels to final page
+			window.location.replace("./HighScores.html");
 		}
 	});
 }
