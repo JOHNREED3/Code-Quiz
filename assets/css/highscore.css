@@ -80,3 +80,20 @@ li {
     margin: 0px;
     padding: 0px;
 }
+
+.btn {
+    width:fit-content;
+    background-color: rgba(128,0,128, 0.6);
+    color: rgba(255,255,255, .8);
+    border-radius: 5 px;
+    border-color: rgb(120, 120, 120);
+    margin: 0 px;
+    padding: 0 px;
+}
+
+#buttons {
+    display:inline-flex;
+    align-content: flex-start;
+    margin: 0 px;
+    padding: 0 px;
+}
