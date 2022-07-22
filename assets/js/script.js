@@ -185,7 +185,9 @@ function recordScore() {
 			var jsScore = JSON.stringify(scores);
 			localStorage.setItem("scores", jsScore);
 			// Travels to final page
-			window.location.replace("./highscore.html");
+			window.location.replace(
+				"https://johnreed3.github.io/Code-Quiz/highscore.html"
+			);
 		}
 	});
 }
